@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script>
+        $(function () {
+            $('#btn').on('click',function () {
+                var form =  $('#form').serialize();
+                $.ajax({
+                    url:'add',
+                    type:'post',
+                    data:form,
+                    success:function () {
+                        alert("注册成功")
+                    }
+                })
+            })
+        })
+
+    </script>
+</head>
+<body>
+<h2>注册页面</h2>
+<form id="form">
+    用户名:<input type="text" name="userName">
+    邮箱:<input type="text" name="e_mail">
+    密码:<input type="text" name="pwd">
+    <input type="button" value="提交" id="btn">
+</form>
+</body>
+</html>

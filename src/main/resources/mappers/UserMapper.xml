@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.nf.eshop2.dao.UserDao">
+
+    <resultMap id="reMap" type="users">
+        <id property="id" column="id"/>
+        <result property="userName" column="userName"/>
+        <result property="e_mail" column="e_mail"/>
+        <result property="pwd" column="pwd"/>
+    </resultMap>
+
+    <insert id="save" parameterType="users">
+        insert into user_info2(userName,e_mail,pwd) values (#{userName},#{e_mail},#{pwd})
+    </insert>
+
+    <select id="list" resultMap="reMap">
+        select id,userName,e_mail,pwd from user_info2
+    </select>
+</mapper>
